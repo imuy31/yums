@@ -1,0 +1,931 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    color: rgb(31, 31, 31);
+    text-decoration: none;
+    list-style: none;
+    letter-spacing: 0.05em;
+    box-sizing: border-box;
+}
+div {
+    display: block;
+} 
+p {
+    display: block;
+    letter-spacing: 0.2em;
+    font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic";
+}
+body {
+    background-color: #fffaf1;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.95;
+}
+
+/* ========================================
+ヘッダー
+========================================= */
+/*========= スクロール途中でヘッダーが表示＆非表示するためのCSS ===============*/
+#header{
+/*fixedで上部固定*/
+    position: fixed;
+    height: 85px;
+    width:100%;
+    z-index: 999;/*最前面へ*/
+/*以下はレイアウトのためのCSS*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:#fff;
+    color:#333;
+    text-align: center;
+}
+/*　上に上がる動き　*/
+#header.UpMove{
+    animation: UpAnime 0.5s forwards;
+}
+@keyframes UpAnime{
+from {
+    opacity: 1;
+    transform: translateY(0);
+}
+to {
+    opacity: 0;
+    transform: translateY(-100px);
+}
+}
+
+/*　下に下がる動き　*/
+#header.DownMove{
+    animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+from {
+    opacity: 0;
+    transform: translateY(-100px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+/*==ナビゲーション全体の設定*/
+nav{
+    width: 100%;
+}
+/*ナビゲーションを横並びに*/
+nav ul{
+	list-style: none;
+	display: flex;
+	justify-content: right;
+}
+/*2階層目以降は横並びにしない*/
+nav ul ul{
+	display: block;
+}
+/*下の階層のulや矢印の基点にするためliにrelativeを指定*/
+nav ul li{
+	position: relative;
+}
+nav ul li a{
+    display: block;
+    text-decoration: none;
+    color: #666;
+    padding-right:50px;
+    padding-top: 30px;
+    transition:all 0.3s;
+}
+nav ul li li a{
+	padding:10px 35px;
+}
+nav ul li a:hover{
+	color:#cfb187;	
+}
+/*==矢印の設定*/
+/*2階層目を持つliの矢印の設定*/
+nav ul li.has-child::before{
+	content:'';
+	position: absolute;
+	left: 30px;
+	top:60px;
+	width:6px;
+	height:6px;
+	border-top: 2px solid #cfb187;
+    border-right:2px solid #cfb187;
+    transform: rotate(135deg);
+}
+/*== 2・3階層目の共通設定 */
+/*下の階層を持っているulの指定*/
+nav li.has-child ul{
+    /*絶対配置で位置を指定*/
+	position: absolute;
+	left:10px;
+	top:80px;
+	z-index: 3;
+    /*形状を指定*/
+	background:#fff;
+	width: 210px;
+    /*はじめは非表示*/
+	visibility: hidden;
+	opacity: 0;
+    /*アニメーション設定*/
+	transition: all .9s;
+}
+/*hoverしたら表示*/
+nav li.has-child:hover > ul,
+nav li.has-child ul li:hover > ul,
+nav li.has-child:active > ul,
+nav li.has-child ul li:active > ul{
+  visibility: visible;
+  opacity: 1;
+}
+/*ナビゲーションaタグの形状*/
+nav li.has-child ul li a{
+	border-bottom:solid 1px rgba(255,255,255,0.6);
+    height: 40px;
+}
+nav li.has-child ul li:last-child a{
+	border-bottom:none;
+}
+
+nav li.has-child ul li a:hover,
+nav li.has-child ul li a:active{
+	background:rgb(255, 246, 234);
+}
+
+
+#tell-yoyaku {
+    padding: 1.0% 30px;
+    font-size: 15px;
+}
+.phone-number {
+    padding: 0 8px;
+    font-size: 1.2rem;
+}
+.button_yoyaku a {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 200px;
+    padding: 15px;
+    margin: 15px 60px 15px 0;
+    color: #FFF;
+    transition: 0.3s ease-in-out;
+    background: #cfb187;
+    filter: drop-shadow(0px 2px 4px #ccc);
+    border-radius: 3px;
+    border-radius: 50px;
+    font-size: 20px;
+}
+.button_yoyaku a:after {
+    position: absolute;
+    right: 20px;
+    transition: 0.2s ease-in-out;
+    font-weight: 900;
+    transform: translateY(-50%);
+}
+.button_yoyaku a:hover {
+    background: #d8c6ad;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
+}
+/* ========================================
+トップ画像
+========================================= */
+section {
+    display: block;
+}
+.top-img img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.top-img h2 {
+    position: absolute;
+    top: 300px;
+    left: 9%;
+    font-size: 2.2rem;
+    display: block;
+    padding: 8px 25px;
+    color:#fff;
+}
+.top-img p {
+    position: absolute;
+    top: 380px;
+    left: 9%;
+    font-size: 1.5rem;
+    text-align: left;
+    padding: 8px 25px;
+    color:#fff;
+}
+
+
+/* ===
+top-clinic
+====== */
+.news {
+    /* padding: 10px 0; */
+}
+.inner {
+    width: 80%;
+    margin: 0 auto;
+    padding: 65px 0 100px;
+}
+.sub_ttl {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+  /* ここからがニュース記事のCSS */
+.news_list {
+    margin: 0 5%;
+}
+.news_list_item {
+    padding: 25px 0;
+    border-bottom: 1px solid #E6E6E6;
+}
+.news_list_item:first-child {
+    border-top: 1px solid #E6E6E6;
+}
+.news_list_item a {
+position: relative;
+display: flex;
+padding-right: 30px;
+}
+.news_list_date {
+    font-size: 15px;
+    display: flex;
+    margin-right: 15px;
+    align-items: center;
+}
+.news_item {
+    background: #F6C6A2;
+    border-radius: 14px;
+    width: 6em;
+    /* 親要素の文字サイズを基準 */
+    text-align: center;
+    margin-left: 20px;
+}
+@media screen and (max-width: 1024px) {
+.news_list_item a {
+    display: block;
+}
+}
+@media screen and (max-width: 769px) {
+.news_list_item a  {
+    font-size: 14px;
+}
+}
+@media screen and (max-width: 480px) {
+.arrow {
+    display: none;
+}
+.news_list_item a {
+    padding-right: 0;
+}
+}
+
+.box1 {
+    position: relative;
+    height: 390px;
+    margin-top: 100px;
+}
+.box1-text {
+    position: absolute;
+    width: 35%;
+    left: 9%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2rem;
+}
+h3.tit01 {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 54px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    font-size: 24px;
+    font-family: "FOT-筑紫A丸ゴシック Std M", "TsukuARdGothicStd-M", 游ゴシック体, "Yu Gothic", YuGothic;
+}
+h3.tit01 span {
+    display: table;
+    position: relative;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #c5934b;
+    font-size: 42px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    line-height: 1.35;
+    z-index: 2;
+}
+.box1 img {
+    position: absolute;
+    right: 12%;
+    width: 33%;
+}
+.box2 {
+    position: relative;
+    height: 600px;
+}
+.box2 img {
+    position: absolute;
+    left: 13%;
+    top: 120px;
+    width: 35%;
+}
+.box2-text {
+    position: absolute;
+    right: 10%;
+    width: 35%;
+    top: 20%;
+    /* padding: 5%; */
+    letter-spacing: 1em
+}
+.box2-text p {
+    padding-bottom: 10%;
+}
+
+/*==================================================
+ふわっ
+===================================*/
+
+/* その場で */
+.fadeIn{
+    animation-name:fadeInAnime;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeInAnime{
+    from {
+        opacity: 0;  
+}
+    
+    to {
+        opacity: 1;
+}
+}
+
+
+
+/* =====
+ごあいさつ
+======== */
+#top-doctor {
+    padding: 320px 0 200px 0;
+    display: block;
+}
+#top-doctor-box {
+    position: relative;
+    width: 65%;
+    /* height: 90%; */
+    margin-left: 100px;
+    padding: 10px 15% 90px 100px;
+    box-sizing: border-box;
+    z-index: 2;
+    background-color: #fff;
+}
+.doctorname {
+    color: #b9a888;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-top: 20px;
+}
+.doctor {
+    position: absolute;
+    width: 45%;
+    top: -6%;
+    right: -25%;
+    vertical-align: bottom;
+}
+#top-doctor-box .button_solid002 {
+    /* padding-left: 70%; */
+    padding-top: 2%;
+}
+
+
+/* =====
+診療内容
+======== */
+.top_medical {
+    padding:0 10% 13% 10%;
+}
+.top_medical_list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.top_medical_list a {
+    display: block;
+    margin-right: 40px;
+    text-align: center;
+    width: 160px;
+    height: 300px;
+}
+.top_medical_list a img {
+    width: 100%;
+}
+.top_medical_list img:hover  {
+    opacity: 0.7;
+    filter: top_medical_list(opacity=70);
+    transition: all 0.6s ease-in-out;
+}
+.top_medical_list p {
+    display: block;
+    margin-bottom: 4px;
+    color: #c5934b;
+    font-size: 10px;
+    font-family: "trajan-sans-pro",sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.top_medical_list h3 {
+    color: #333333;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Noto Sans Japanese", 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic";
+}
+/* =====
+特徴
+======== */
+/* トップ */
+.top_feature_img img {
+    width: 100%;
+}
+.top_feature {
+    padding: 0 10% 60% 10%;
+    height: auto;
+}
+/* 共通 */
+.feature_text_right,
+.feature_text_left,
+.feature_text_right02,
+.feature_text_left02 {
+    position: relative;
+    height: 550px;
+}
+.feature_text01 h1 ,
+.feature_text02 h1 ,
+.feature_text03 h1 ,
+.feature_text04 h1  {
+    color: #333333;
+    font-family: "FOT-筑紫A丸ゴシック Std M", "TsukuARdGothicStd-M", 游ゴシック体, "Yu Gothic", YuGothic;
+    font-size: 28px;
+    letter-spacing: 0.05rem;
+    padding-left: 0;
+}
+.feature_text01 p ,
+.feature_text02 p ,
+.feature_text03 p ,
+.feature_text04 p {
+    width: 76%;
+    letter-spacing: normal;
+}
+
+/* 滅菌対策 */
+.feature_text_right img {
+    width: 55%;
+    position: absolute;
+    top: 0;
+    left: -1%;
+    z-index: 1;
+}
+.feature_text01 {
+    position: absolute;
+    top: 30px;
+    right: -1%;
+    background-color: #fff;
+    width: 80%;
+    height: 70%;
+    padding: 45px 0 45px 410px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/* 最先端機器の導入 */
+.feature_text_left img {
+    width: 55%;
+    position: absolute;
+    top: 0;
+    right: -1%;
+    z-index: 1;
+}
+.feature_text02 {
+    position: absolute;
+    top: 30px;
+    left: -1%;
+    background-color: #fff;
+    width: 80%;
+    height: 70%;
+    padding: 45px 300px 45px 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/* バリアフリー */
+.feature_text_right02 img {
+    width: 55%;
+    position: absolute;
+    top: 560px;
+    left: -1%;
+    z-index: 1;
+}
+.feature_text03 {
+    position: absolute;
+    top: 600px;
+    right: -1%;
+    background-color: #fff;
+    width: 80%;
+    height: 70%;
+    padding: 45px 0 45px 410px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ====
+お知らせ
+=======*/
+
+
+/* =======
+アクセス
+========== */
+.access {
+    height: ;
+}
+.address {
+    padding-top: 10px;
+    font-size: 19px;
+    text-align: center;
+}
+.access-phone {
+    padding: 15px;
+    background-color: #f3f9ff;
+    width: 28%;
+    margin: 10px auto;
+}
+.access-boxs {
+    display: flex;
+}
+
+.train {
+    width: 50%;
+    padding: 0 0 0 10rem;
+    display: flex;
+}
+.train img {
+    width: 42%;
+    height: 32%;
+}
+.train p {
+    padding-left: 10px;
+}
+
+.car {
+    width: 50%;
+    padding: 0 3rem 0 0;
+    display: flex;
+}
+.car img {
+    width: 32%;
+    height: 32%;
+}
+.car p {
+    padding-left: 10px;
+}
+
+#box-car {
+	padding:10px 8px;/*内側余白*/
+	border-left:double 5px #ccc;/*左の線の種類・太さ・色*/
+	border-right:double 5px #ccc;/*右の線の種類・太さ・色*/
+	background-color:#f0f0ee;/*背景色*/
+	box-shadow:3px 1px 4px rgba(0, 0, 0, 0.2);/*ボックス影*/
+    width: 30%;
+    height: 50px;
+    text-align: center;
+}
+/* =====
+フッター
+======== */
+footer {
+    background-color: #efdec6;
+    height: 500px;
+    margin-top: 100px;
+}
+.footer-inner {
+    display: flex;
+    display: center;
+    width: 100%;
+}
+.footer-inner li, 
+.footer-inner h4 {
+    padding: 5px;
+}
+.footer-inner li :hover {
+    color: #8c6120;
+}
+.footer-nav2 {
+    width: 25%;
+    padding: 5rem 0 0 10rem;
+}
+.footer-nav3 {
+    width: 25%;
+    padding: 5rem 0 0 12rem;
+}
+.footer-nav4 {
+    width: 25%;
+    padding: 7.5rem 0 0 5rem;
+}
+/* =====================
+フッタースケジュール
+===================== */
+.footer-schedule {
+    width: 30%;
+    padding: 5rem 2rem 0 0;
+}
+.footer-schedule img {
+    width: 100%;
+    /* height: 150px; */
+}
+.footer-schedule p {
+    color: #000;
+    font-size: 13px;
+    left: 5%;
+    top: 80px;
+}
+
+
+
+/* =============
+矢印アイコン共通
+================ */
+.arrow{
+    position: relative;
+    display: inline-block;
+    padding: 0 0 0 16px;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 15px;
+}
+.arrow::before,
+.arrow::after{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    content: "";
+    vertical-align: middle;
+}
+/* =====================
+矢印 ＞アイコン
+===================== */
+.right::before{
+    left: 3px;
+    width: 4px;
+    height: 4px;
+    border-top: 2px solid #8c6120;
+    border-right: 2px solid #8c6120;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+/* =====================
+矢印 ▶アイコン
+===================== */
+.right2::before{
+    box-sizing: border-box;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #8c6120;
+    -webkit-border-radius: 25%;
+    border-radius: 25%;
+}
+.right2::after{
+    left: 5px;
+    box-sizing: border-box;
+    width: 5px;
+    height: 5px;
+    border: 3px solid transparent;
+    border-left: 3px solid #8c6120;
+}
+
+
+
+/* =====================
+sns
+===================== */
+/* ボタン全体 */
+.flowbtn9{
+display:inline-block;	
+font-size:40px;
+text-decoration:none;
+transition:.5s;
+}
+/* Twitter */
+.flowbtn9 .fa-twitter{
+color:#8c6120;
+}
+/* Instagram */
+.flowbtn9 .fa-instagram{
+color:#8c6120;
+}
+/* Facebook*/
+.flowbtn9 .fa-facebook-square{
+color:#8c6120;
+}
+/* お問い合わせメール */
+.flowbtn9 .fa-envelope-square{
+color:#8c6120;	
+}
+/* アイコン全体の位置 */
+.snsbtniti{
+display:flex;
+margin: 20px 42%;
+}
+/* アイコン同士の余白 */
+.snsbtniti li{
+padding: 10px;
+}
+/* アイコンにマウスを乗せた時 */
+.flowbtn9:hover{
+-webkit-transform: translateY(-5px);
+-ms-transform: translateY(-5px);
+transform: translateY(-5px);
+}
+#copyright {
+    text-align: center;
+}
+/*=====================
+feature.html 当院について
+===================== */
+.main-feature img {
+    height: 600px;
+    width: 100%;
+}
+.main-feature h2 {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    font-size: 2.2rem;
+    display: block;
+    color:#fff;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.main-feature p {
+    position: absolute;
+    top: 60%;
+    left: 47%;
+    font-size: 1.0rem;
+    display: block;
+    color:#fff;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/* ======
+当院について
+========= */
+.point-heading {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px 0;
+}
+.feature p {
+    line-height: 1.5em;
+}
+.point-text {
+    width: 80%;
+}
+/* =======
+もっと詳しく
+========== */
+.button_solid002 a {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    max-width: 180px;
+    padding: 10px 25px;
+    color: #FFF;
+    transition: 0.3s ease-in-out;
+    background: #cfb187;
+    filter: drop-shadow(0px 2px 4px #ccc);
+    border-radius: 3px;
+    border-radius: 50px;
+    font-size: 15px;
+}
+.button_solid002 a:after {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transition: 0.2s ease-in-out;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transform: translateY(-50%);
+}
+.button_solid002 a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
+}
+/* ====
+point1
+======= */
+.point-container1 {
+    position: relative;
+    height: 390px;
+}
+.point1 {
+    position: absolute;
+    width: 60%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.point-container1 img {
+    position: absolute;
+    right: 5%;
+    width: 35%;
+    z-index: 1;
+}
+/* =====
+point２
+======== */
+.point2 {
+    position: relative;
+    height: 390px;
+    margin: 0;
+}
+.point2 img {
+    position: absolute;
+    width: 35%;
+    left: 5%;
+    z-index: 1;
+}
+.point-container2 {
+    width: 60%;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* ====
+point３
+======= */
+.point3 {
+    position: relative;
+    height: 200px;
+}
+.point3 img {
+    position: absolute;
+    /* top: 40px; */
+    right: 5%;
+    width: 35%;
+    z-index: 1;
+}
+.point-container3 {
+    position: absolute;
+    /* background-color: #f3f9ff; */
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/*======================
+ふわっ box fadeUpTrigger
+========================*/
+.fadeUp{
+animation-name:fadeUpAnime;
+animation-duration:2s;
+animation-fill-mode:forwards;
+opacity:0;
+}
+@keyframes fadeUpAnime{
+from {
+opacity: 0;
+transform: translateY(100px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+/* スクロールをしたら出現する要素にはじめに透過0を指定　*/ 
+.fadeUpTrigger{
+    opacity: 0;
+}

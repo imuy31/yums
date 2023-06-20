@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="レイヤー_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 313.03 123.07" style="enable-background:new 0 0 313.03 123.07;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#F6B866;stroke-width:2;stroke-miterlimit:10;}
+	.st1{fill:#EEB366;stroke:#F6B866;stroke-width:2;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#F6B866;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st4{fill:#FFFFFF;}
+	.st5{font-family:'KozGoPr6N-Regular-83pv-RKSJ-H';}
+	.st6{font-size:11px;}
+	.st7{font-size:12px;}
+</style>
+<rect class="st0" width="312.42" height="123.07"/>
+<rect x="0" class="st1" width="313.03" height="26.46"/>
+<line class="st2" x1="84.83" y1="26.04" x2="85.14" y2="123.07"/>
+<line class="st2" x1="113.39" y1="25.43" x2="113.39" y2="123.07"/>
+<line class="st2" x1="141.52" y1="26.14" x2="141.83" y2="123.07"/>
+<line class="st2" x1="169.87" y1="26.04" x2="170.18" y2="123.07"/>
+<line class="st2" x1="198.21" y1="26.71" x2="198.52" y2="123.07"/>
+<line class="st2" x1="226.56" y1="26.25" x2="226.87" y2="123.07"/>
+<line class="st2" x1="255.02" y1="26.46" x2="255.33" y2="123.07"/>
+<line class="st2" x1="283.36" y1="26.46" x2="283.68" y2="124.06"/>
+<line class="st2" x1="-0.61" y1="74.25" x2="312.42" y2="74.25"/>
+<line class="st3" x1="84.94" y1="0" x2="84.83" y2="26.04"/>
+<line class="st3" x1="113.45" y1="0" x2="113.33" y2="26.04"/>
+<line class="st3" x1="141.54" y1="0.26" x2="141.42" y2="26.3"/>
+<line class="st3" x1="170.08" y1="0" x2="169.96" y2="26.04"/>
+<line class="st3" x1="198.23" y1="0" x2="198.11" y2="26.04"/>
+<line class="st3" x1="226.58" y1="0.64" x2="226.46" y2="26.69"/>
+<line class="st3" x1="255.24" y1="0.39" x2="255.12" y2="26.43"/>
+<line class="st3" x1="283.38" y1="0.77" x2="283.26" y2="26.82"/>
+<text transform="matrix(1 0 0 1 20.5197 16.8043)" class="st4 st5 st6">受付時間</text>
+<text transform="matrix(1 0 0 1 93.7128 16.8043)" class="st4 st5 st6">月</text>
+<text transform="matrix(1 0 0 1 122.0591 16.8043)" class="st4 st5 st6">火</text>
+<text transform="matrix(1 0 0 1 150.4055 16.8043)" class="st4 st5 st6">水</text>
+<text transform="matrix(1 0 0 1 178.752 16.8043)" class="st4 st5 st6">木</text>
+<text transform="matrix(1 0 0 1 207.0982 16.8043)" class="st4 st5 st6">金</text>
+<text transform="matrix(1 0 0 1 235.4449 16.8043)" class="st4 st5 st6">土</text>
+<text transform="matrix(1 0 0 1 263.7914 16.8043)" class="st4 st5 st6">日</text>
+<text transform="matrix(1 0 0 1 292.1373 16.8043)" class="st4 st5 st6">祝</text>
+<text transform="matrix(1 0 0 1 24.542 46.4253)"><tspan x="0" y="0" class="st5 st7">10:00~</tspan><tspan x="0" y="15" class="st5 st7">  13:30</tspan></text>
+<text transform="matrix(1 0 0 1 23.9442 94.6142)"><tspan x="0" y="0" class="st5 st7">15:00~</tspan><tspan x="0" y="15" class="st5 st7">  20:00</tspan></text>
+<text transform="matrix(1 0 0 1 93.2125 56.76)" class="st5 st7">○</text>
+<text transform="matrix(1 0 0 1 206.5985 56.7599)" class="st5 st7">○</text>
+<text transform="matrix(1 0 0 1 149.9055 56.7599)" class="st5 st7">○</text>
+<text transform="matrix(1 0 0 1 121.5589 56.7599)" class="st5 st7">○</text>
+<text transform="matrix(1 0 0 1 234.9448 56.7599)" class="st5 st7">○</text>
+<text transform="matrix(1 0 0 1 263.2913 56.7599)" class="st5 st7">○</text>
+<text transform="matrix(1 0 0 1 93.2125 102.1141)" class="st5 st7">○</text>
+<text transform="matrix(1 0 0 1 121.5592 102.1144)" class="st5 st7">○</text>
+<text transform="matrix(1 0 0 1 149.9056 102.1144)" class="st5 st7">○</text>
+<text transform="matrix(1 0 0 1 206.5985 102.1144)" class="st5 st7">○</text>
+<text transform="matrix(1 0 0 1 234.9448 102.1143)" class="st5 st7">△</text>
+<text transform="matrix(1 0 0 1 263.2913 102.1142)" class="st5 st7">△</text>
+<line class="st2" x1="198.37" y1="74.83" x2="170.18" y2="123.07"/>
+<line class="st2" x1="198.21" y1="26.71" x2="170.18" y2="73.67"/>
+<line class="st2" x1="311.52" y1="74.83" x2="283.32" y2="123.07"/>
+<line class="st2" x1="311.52" y1="26.75" x2="283.32" y2="74.98"/>
+</svg>
